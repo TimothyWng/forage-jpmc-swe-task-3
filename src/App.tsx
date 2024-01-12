@@ -5,7 +5,7 @@ import './App.css';
 
 interface IState {
   data: ServerRespond[],
-  showGraph: boolean,
+  showGraph: boolean, // initially hide graph until button press
 }
 
 class App extends Component<{}, IState> {
@@ -23,7 +23,7 @@ class App extends Component<{}, IState> {
     }
   }
 
-  getDataFromServer() {
+  getDataFromServer() { // needs to constantly retrieve data from server
     let x = 0;
     const interval = setInterval(() => {
       DataStreamer.getData((serverResponds: ServerRespond[]) => {
